@@ -1,0 +1,24 @@
+services:
+  library-app:
+    build: .
+    container_name: online-library-app
+    ports:
+      - "3000:3000"
+    environment:
+      ADMIN_USER: admin
+      ADMIN_PASSWORD: admin123
+      SESSION_SECRET: change-this-before-real-use
+    volumes:
+      - library-data:/app/data
+    restart: unless-stopped
+  selenium:
+    image: selenium/standalone-chrome:latest
+    container_name: library-selenium
+    shm_size: 2gb
+    ports:
+      - "4444:4444"
+    depends_on:
+      - library-app
+    restart: unless-stopped
+volumes:
+  library-data:

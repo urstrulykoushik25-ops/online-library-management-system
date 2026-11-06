@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Online Library Management System</title><link rel="stylesheet" href="style.css"></head>
+<body><header><h1>Online Library Management System</h1><p>Manage books, students and book transactions</p></header>
+<main><section class="panel" id="loginPanel"><h2>Admin Login</h2><form id="loginForm"><input id="username" placeholder="Username" value="admin" required><input id="password" type="password" placeholder="Password" value="admin123" required><button>Login</button></form><small>Demo login: admin / admin123</small></section>
+<section id="dashboard" hidden><div class="topline"><h2>Admin Dashboard</h2><button class="secondary" id="logoutBtn">Logout</button></div><p id="message" role="status"></p>
+<div class="grid"><section class="panel"><h3>Add a book</h3><form id="bookForm"><input id="bookTitle" placeholder="Book title" required><input id="bookAuthor" placeholder="Author" required><button>Add book</button></form></section>
+<section class="panel"><h3>Register a student</h3><form id="studentForm"><input id="studentName" placeholder="Student name" required><input id="studentEmail" type="email" placeholder="Student email" required><button>Register student</button></form></section>
+<section class="panel"><h3>Issue a book</h3><form id="issueForm"><select id="issueBook" required><option value="">Select available book</option></select><select id="issueStudent" required><option value="">Select student</option></select><label>Due date <input id="dueDate" type="date"></label><button>Issue book</button></form></section></div>
+<section class="panel"><h3>Search books</h3><input id="search" placeholder="Search by title or author"><div class="tablewrap"><table><thead><tr><th>Book</th><th>Author</th><th>Status</th><th>Actions</th></tr></thead><tbody id="booksBody"></tbody></table></div></section>
+<section class="panel"><h3>Issued books and overdue fines</h3><div class="tablewrap"><table><thead><tr><th>Book</th><th>Student</th><th>Due date</th><th>Status / Fine</th><th>Action</th></tr></thead><tbody id="issuesBody"></tbody></table></div><small>Fine is calculated at ₹5 per day after the due date.</small></section>
+</section></main><script src="app.js"></script></body></html>
